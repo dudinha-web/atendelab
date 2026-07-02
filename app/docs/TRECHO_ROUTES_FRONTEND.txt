@@ -1,0 +1,27 @@
+<?php
+/**
+ * COPIE ESTE BLOCO PARA DENTRO DO switch ($controller) DO routes.php.
+ * Preserve os controllers auth, usuarios, pessoas, tipos e atendimentos existentes.
+ */
+case 'frontend':
+    require_once __DIR__ . '/app/Controllers/FrontendController.php';
+    $frontendController = new FrontendController();
+
+    switch ($action) {
+        case 'pessoas':
+            $frontendController->pessoas();
+            break;
+
+        case 'tipos':
+            $frontendController->tiposAtendimentos();
+            break;
+
+        case 'atendimentos':
+            $frontendController->atendimentos();
+            break;
+
+        default:
+            http_response_code(404);
+            echo 'Página não encontrada.';
+    }
+    break;
